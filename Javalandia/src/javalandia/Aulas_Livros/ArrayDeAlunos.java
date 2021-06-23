@@ -8,7 +8,6 @@
  */
 package javalandia.Aulas_Livros;
 
-import AulasLivros.Pessoa;
 import java.util.Scanner;
 
 /**

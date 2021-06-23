@@ -1,6 +1,5 @@
 package javalandia.Aulas_Livros;
 
-import AulasLivros.ProjetoCaneta;
 import java.util.Scanner;
 
 public class Caneta {

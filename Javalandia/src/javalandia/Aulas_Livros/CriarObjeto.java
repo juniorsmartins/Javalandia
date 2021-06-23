@@ -1,7 +1,5 @@
 package javalandia.Aulas_Livros;
 
-import AulasLivros.ProjetoTV;
-
 public class CriarObjeto {
 
     public static void main(String[] args) 
