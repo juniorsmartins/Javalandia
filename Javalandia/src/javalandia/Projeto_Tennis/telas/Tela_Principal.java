@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javalandia.Projeto_Tennis;
+package javalandia.Projeto_Tennis.telas;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
