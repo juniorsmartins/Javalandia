@@ -1,7 +1,6 @@
 package javalandia.Aulas_GustavoGuanabara;
 
 import java.util.Scanner;
-import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 
 public class EstruturaDeRepeticaoEnquantoIV {
 
@@ -20,6 +19,10 @@ public class EstruturaDeRepeticaoEnquantoIV {
             resposta = toUpperCase(teclado.next());
         } while (resposta.equals("S"));
         System.out.println("A resposta é: " + soma);
+    }
+
+    private static String toUpperCase(String next) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
