@@ -14,7 +14,7 @@ public final class Generics_1<T>
     public void setAtributo(T atributo){this.atributo = atributo;};
     public T getAtributo(){return atributo;};
     
-    public void showType(T atributo)
+    public void showType()
     {
         out.println("Origem: " + atributo.getClass().getName());
     }

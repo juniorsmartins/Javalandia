@@ -17,5 +17,9 @@ public class Generics_Teste_1
         Generics_1<String> num3 = new Generics_1<>("Paulo");
         String soma3 = num3.getAtributo() + " " + "Cesar";
         out.println("Soma3: " + soma3);
+        
+        num1.showType();
+        num2.showType();
+        num3.showType();
     };
 }
