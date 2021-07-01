@@ -9,6 +9,7 @@ public class Generics_Teste_4
         Generics_4<Integer> num1 = new Generics_4<>(2);
         Generics_4<Double> num2 = new Generics_4<>(4.5);
         Generics_4<Long> num3 = new Generics_4<>(-2L);
+        Generics_4 num4 = new Generics_4(4); // Type Bruto
 
         if(num1.absEquals(num2))
         {
