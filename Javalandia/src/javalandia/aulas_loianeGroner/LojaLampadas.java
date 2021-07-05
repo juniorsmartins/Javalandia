@@ -1,8 +1,6 @@
 
 package javalandia.aulas_loianeGroner;
 
-import AulasLoianeGroner.ProjetoLampada;
-
 public class LojaLampadas 
 {
 

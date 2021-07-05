@@ -1,6 +1,5 @@
 package javalandia.aulas_loianeGroner;
 
-import AulasLoianeGroner.AnimalEstimacao;
 import javalandia.aulas_loianeGroner.AnimalDomesticado;
 import javalandia.aulas_loianeGroner.Mamifero;
 

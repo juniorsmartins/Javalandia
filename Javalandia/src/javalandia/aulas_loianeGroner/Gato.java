@@ -1,9 +1,5 @@
 package javalandia.aulas_loianeGroner;
 
-import AulasLoianeGroner.AnimalDomesticado;
-import AulasLoianeGroner.AnimalEstimacao;
-import javalandia.aulas_loianeGroner.Mamifero;
-
 public class Gato extends Mamifero implements AnimalDomesticado, AnimalEstimacao
 {
     /* ---------- ÁREA DE ATRIBUTOS --------- */

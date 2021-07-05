@@ -1,11 +1,6 @@
 package javalandia.aulas_loianeGroner;
 
-import AulasLoianeGroner.ProjetoEndereco;
-import AulasLoianeGroner.ProjetoTelefone;
-import javalandia.aulas_loianeGroner.ProjetoContato;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 public class TesteContato 
 {

@@ -1,7 +1,5 @@
 package javalandia.aulas_loianeGroner;
 
-import AulasLoianeGroner.ProjetoEndereco;
-import AulasLoianeGroner.ProjetoTelefone;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 

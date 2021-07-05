@@ -1,10 +1,5 @@
 package javalandia.aulas_loianeGroner;
 
-import AulasLoianeGroner.Cachorro;
-import AulasLoianeGroner.Cavalo;
-import AulasLoianeGroner.Papagaio;
-import javalandia.aulas_loianeGroner.Gato;
-
 public class TesteAnimais 
 {
 

@@ -1,7 +1,5 @@
 package javalandia.aulas_loianeGroner;
 
-import AulasLoianeGroner.ClassAbsPessoaFisica_01;
-
 public class Colaborador extends ClassAbsPessoaFisica_01
 {
     /* -------------- ÁREA DE ATRIBUTOS --------------- */
