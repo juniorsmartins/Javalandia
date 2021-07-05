@@ -1,4 +1,4 @@
-package javalandia.aulas_posJava;
+package javalandia.aulas_especializacaoJava.generics;
 import static java.lang.System.out;
 
 public class Generics_Teste_9 

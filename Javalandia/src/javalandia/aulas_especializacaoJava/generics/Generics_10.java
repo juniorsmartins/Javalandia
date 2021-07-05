@@ -1,4 +1,4 @@
-package javalandia.aulas_posJava;
+package javalandia.aulas_especializacaoJava.generics;
 
 import java.util.List;
 import java.util.ArrayList;

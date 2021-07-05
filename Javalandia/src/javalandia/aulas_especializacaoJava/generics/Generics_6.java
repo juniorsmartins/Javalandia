@@ -1,4 +1,4 @@
-package javalandia.aulas_posJava;
+package javalandia.aulas_especializacaoJava.generics;
 
 public interface Generics_6<T> 
 {

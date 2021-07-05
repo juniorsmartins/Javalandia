@@ -1,4 +1,4 @@
-package javalandia.aulas_posJava;
+package javalandia.aulas_especializacaoJava.generics;
 
 public final class Generics_7<K extends Number, T, V extends Number, E extends V> 
 {

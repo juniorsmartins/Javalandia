@@ -1,4 +1,4 @@
-package javalandia.aulas_posJava;
+package javalandia.aulas_especializacaoJava.generics;
 
 public class Generics_6_1<T> implements Generics_6<T> 
 {
