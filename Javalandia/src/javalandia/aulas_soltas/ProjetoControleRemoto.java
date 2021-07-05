@@ -1,7 +1,5 @@
 package javalandia.aulas_soltas;
 
-import AulasOutros.InterfaceControleRemoto;
-
 public class ProjetoControleRemoto implements InterfaceControleRemoto
 {
 
