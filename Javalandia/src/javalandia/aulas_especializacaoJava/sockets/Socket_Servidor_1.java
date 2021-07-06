@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class Servidor_1 
+public class Socket_Servidor_1 
 {
     private static Socket socket;
     private static ServerSocket server;
@@ -45,8 +45,5 @@ public class Servidor_1
         {
             //TODO
         }
-    }
-
-
-    
+    }    
 }

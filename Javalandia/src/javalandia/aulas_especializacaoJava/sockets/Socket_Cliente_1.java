@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import static java.lang.System.out;
 
-public class Cliente_1 
+public class Socket_Cliente_1 
 {
     private static Socket socket;
     private static DataInputStream entrada;
