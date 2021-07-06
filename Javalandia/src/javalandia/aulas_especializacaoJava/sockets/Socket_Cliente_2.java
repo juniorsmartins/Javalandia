@@ -1,3 +1,6 @@
+/*
+    Cliente
+*/
 package javalandia.aulas_especializacaoJava.sockets;
 
 import java.io.IOException;
@@ -44,6 +47,6 @@ public final class Socket_Cliente_2
             conexao.close();
             
         }catch(IOException excIO)
-        {}
+        {/*sem tratamento*/}
     }
 }
