@@ -1,7 +1,5 @@
 package javalandia.aulas_soltas;
 
-import AulasOutros.ProjetoAutomovel;
-
 public class ProjetoCarro extends ProjetoAutomovel {
     
     public static long totalCarros;
