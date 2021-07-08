@@ -1,7 +1,5 @@
 package javalandia.aulas_udemy;
 
-import AulasUdemy.ClassFila;
-
 /*
  * Todo elemento entra no final da fila
  * O primeiro elemento a entrar é também o primeiro a sair
