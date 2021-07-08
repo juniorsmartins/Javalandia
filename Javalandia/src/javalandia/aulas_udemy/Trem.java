@@ -1,7 +1,5 @@
 package javalandia.aulas_udemy;
 
-import AulasUdemy.VagaoTrem;
-
 public class Trem 
 {
     /* ---------- ÁREA DE ATRIBUTOS ---------- */
