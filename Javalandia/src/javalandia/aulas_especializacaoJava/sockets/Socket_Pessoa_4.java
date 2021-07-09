@@ -11,7 +11,7 @@ public final class Socket_Pessoa_4 implements Serializable
     Socket_Pessoa_4(String nome, Integer idade)
     {
         setNome(nome);
-        this.idade = idade;
+        setIdade(idade);
     }
 
     public void setNome(String nome)

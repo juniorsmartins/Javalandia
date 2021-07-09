@@ -12,8 +12,6 @@ public final class Socket_Servidor_4 extends Thread
 {
     // Conexao como atributo de instancia para cada objeto thread
     private Socket connection;
-    private ObjectInputStream received;
-    private ObjectOutputStream forward;
     // Construtor parametrizado em conexao
     Socket_Servidor_4(Socket connection)
     {setConnection(connection);}
@@ -27,22 +25,22 @@ public final class Socket_Servidor_4 extends Thread
         try
         {
             // Estabelece canal de entrada de dados
-            received = new ObjectInputStream(connection.getInputStream());
+            ObjectInputStream received = new ObjectInputStream(connection.getInputStream());
             // Recebe o objeto, mas precisa de casting para converter
-            Socket_Pessoa_4 objPessoa = (Socket_Pessoa_4) received.readObject();
+            Socket_Pessoa_4 objPes = (Socket_Pessoa_4) received.readObject();
             // Imprime informacoes recebidas na tela do servidor
-            out.println("Nome: " + objPessoa.getNome());
-            out.format("\nIdade: %s", objPessoa.getIdade());
+            out.println("Nome: " + objPes.getNome());
+            out.format("\nIdade: %s", objPes.getIdade());
             // Processa as informacoes
-            String nome = objPessoa.getNome();
+            String nome = objPes.getNome();
             String novoNome = nome.toUpperCase();
-            objPessoa.setNome(novoNome);
-            Integer idade = objPessoa.getIdade() + 1;
-            objPessoa.setIdade(idade);
+            objPes.setNome(novoNome);
+            Integer idade = objPes.getIdade() + 1;
+            objPes.setIdade(idade);
             // Estabelece canal de saida de dados
-            forward = new ObjectOutputStream(connection.getOutputStream());
+            ObjectOutputStream forward = new ObjectOutputStream(connection.getOutputStream());
             // Reenvia objeto processado
-            forward.writeObject(objPessoa);
+            forward.writeObject(objPes);
             // Fecha canais de entrada e saida e conexao
             received.close();
             forward.close();
@@ -54,7 +52,7 @@ public final class Socket_Servidor_4 extends Thread
         {ioe.toString();} 
         
     }
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args) throws IOException, ClassNotFoundException
     {
         try
         {
@@ -65,7 +63,6 @@ public final class Socket_Servidor_4 extends Thread
             {
                 // Metodo accept bloquea o fluxo continuo do software ate estabelecer conexao com um cliente (fica aguardando ate firmar)
                 Socket connection = server.accept();
-                // 
                 Socket_Servidor_4 ssThread = new Socket_Servidor_4(connection);
                 // Imprime mensagem no servidor
                 out.print("Client Connected!");
