@@ -30,11 +30,11 @@ public final class Socket_Cliente_3
 
                 // Leitor de teclado
                 BufferedReader readerKeyboard = new BufferedReader(new InputStreamReader(in));
-
                 // Imprime mensagem na tela do servidor
                 out.print("\nType a sentence: ");
                 // Recebe uma frase digitada no teclado do usuario
                 sentence = readerKeyboard.readLine();
+                
                 // Envia a frase para o servidor
                 forward.writeUTF(sentence);
                 // Recebe resposta do servidor
@@ -45,7 +45,8 @@ public final class Socket_Cliente_3
                 if(sentence.equalsIgnoreCase("sair"))
                     break;
             }
-            
+            receive.close();
+            forward.close();
             connection.close();
         }
         catch(IOException e)

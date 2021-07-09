@@ -37,6 +37,8 @@ public final class Socket_Servidor_3 extends Thread //A heranca permite realizar
             // envia a frase convertida para o cliente
             forward.writeUTF(newSentence);
             
+            received.close();
+            forward.close();
             connection.close();
         }
         catch(IOException ee)
