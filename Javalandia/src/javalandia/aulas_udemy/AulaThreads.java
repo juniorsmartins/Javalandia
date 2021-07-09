@@ -1,8 +1,5 @@
 package javalandia.aulas_udemy;
 
-import AulasUdemy.BarraDeProgresso;
-import javalandia.aulas_udemy.GeraRelatorio;
-
 public class AulaThreads 
 {
     public static void main(String[] args) 
