@@ -1,9 +1,5 @@
 package javalandia.aulas_udemy;
 
-import AulasUdemy.Cliente;
-import AulasUdemy.Conta;
-import AulasUdemy.FazDeposito;
-
 public class AulaThreads2 
 {
     public static void main(String[] args) throws InterruptedException 
