@@ -1,7 +1,5 @@
 package javalandia.aulas_udemy;
 
-import AulasUdemy.AulaListaLigada_Celula;
-
 public class AulaListaLigada_Lista 
 {
     private AulaListaLigada_Celula primeira = null;
