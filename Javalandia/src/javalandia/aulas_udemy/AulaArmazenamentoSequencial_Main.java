@@ -1,6 +1,5 @@
 package javalandia.aulas_udemy;
 
-import AulasUdemy.AulaArmazenamentoSequencial_Aluno;
 import javalandia.aulas_udemy.AulaArmazenamentoSequencial_Vetor;
 
 public class AulaArmazenamentoSequencial_Main 
