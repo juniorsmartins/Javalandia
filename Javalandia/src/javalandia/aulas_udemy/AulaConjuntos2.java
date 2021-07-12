@@ -1,7 +1,5 @@
 package javalandia.aulas_udemy;
 
-import Projetos.Projeto06_BancoII.Modelo.ContaCorrente;
-import Projetos.Projeto06_BancoII.Modelo.PessoaFisica;
 import java.util.HashMap;
 import java.util.Map;
 
