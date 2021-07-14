@@ -29,13 +29,13 @@ public final class Socket_Servidor_4 extends Thread
             // Recebe o objeto, mas precisa de casting para converter
             Socket_Pessoa_4 objPes = (Socket_Pessoa_4) received.readObject();
             // Imprime informacoes recebidas na tela do servidor
-            out.println("Nome: " + objPes.getNome());
-            out.format("\nIdade: %s", objPes.getIdade());
+            out.println("\nNome: " + objPes.getNome());
+            out.format("Idade: %s", objPes.getIdade());
             // Processa as informacoes
             String nome = objPes.getNome();
             String novoNome = nome.toUpperCase();
             objPes.setNome(novoNome);
-            Integer idade = objPes.getIdade() + 1;
+            int idade = 1 + objPes.getIdade();
             objPes.setIdade(idade);
             // Estabelece canal de saida de dados
             ObjectOutputStream forward = new ObjectOutputStream(connection.getOutputStream());
@@ -65,7 +65,7 @@ public final class Socket_Servidor_4 extends Thread
                 Socket connection = server.accept();
                 Socket_Servidor_4 ssThread = new Socket_Servidor_4(connection);
                 // Imprime mensagem no servidor
-                out.print("Client Connected!");
+                out.println("\nClient Connected!");
                 // Inicializa o metodo run do servidor
                 ssThread.start();
             }

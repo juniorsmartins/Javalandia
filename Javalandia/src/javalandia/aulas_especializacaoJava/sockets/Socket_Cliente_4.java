@@ -22,15 +22,16 @@ public final class Socket_Cliente_4
             {
                 // Define endereço de conexao com o servidor e porta
                 conn = new Socket("127.0.0.1", 52111);
-                // Cria canais de fluxo de entrada e saida
-                channelIn = new ObjectInputStream(conn.getInputStream());
+                // Cria canal de fluxo de saida
                 channelOut = new ObjectOutputStream(conn.getOutputStream());
 
                 // Captar informacoes
                 Scanner entrance = new Scanner(in);        
                 out.print("\nType name: ");
                 nameEntrance = entrance.nextLine();
-                out.print("\nType age: ");
+                if(nameEntrance.equalsIgnoreCase("sair"))
+                    break;
+                out.print("Type age: ");
                 Integer ageEntrance = Integer.parseInt(entrance.nextLine());
 
                 // Criar objeto
@@ -39,14 +40,16 @@ public final class Socket_Cliente_4
                 // Enviar objeto ao servidor
                 channelOut.writeObject(people);
 
-                // Receber resposta do servidor
-                people = (Socket_Pessoa_4) channelIn.readObject();
-                // Imprime resposta
-                out.println("Nome: " + people.getNome());
-                out.printf("Idade: %s \n", people.getIdade());
+                // Criar canal de fluxo de entrada
+                channelIn = new ObjectInputStream(conn.getInputStream());
                 
-                if(nameEntrance.equalsIgnoreCase("sair"));
-                    break;
+                // Receber resposta do servidor
+                Socket_Pessoa_4 people2 = new Socket_Pessoa_4();
+                people2 = (Socket_Pessoa_4) channelIn.readObject();
+
+                // Imprime resposta
+                out.println("\nNome: " + people2.getNome());
+                out.printf("Idade: %s \n", people2.getIdade());
             }
             channelIn.close();
             channelOut.close();
