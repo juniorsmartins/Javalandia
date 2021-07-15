@@ -1,15 +1,15 @@
 package javalandia.aulas_especializacaoJava.sockets;
 
 // Modelo Cliente - Mvc
-public final class Atividade03_Cliente 
+public final class Atividade03_ModeloCliente 
 {
     // Atributos de Instância
     private String nome;
     private int idade;
     
     // Construtores
-    Atividade03_Cliente(){}; // Default
-    Atividade03_Cliente(String nome, int idade) // Parametrizado
+    Atividade03_ModeloCliente(){}; // Default// Default
+    Atividade03_ModeloCliente(String nome, int idade) // Parametrizado
     {
         super();
         this.setNome(nome);

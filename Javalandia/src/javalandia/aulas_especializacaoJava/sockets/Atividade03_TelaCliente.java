@@ -46,7 +46,7 @@ public class Atividade03_TelaCliente
         janela = new JFrame("Tela do Cliente");
         
         // Definir características para o conteiner
-        janela.setSize(600, 400); // Largura e Altura
+        janela.setSize(600, 367); // Largura e Altura
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Encerra o programa ao fechar a janela
 
         // definir posicao da janela na tela do computador do cliente
@@ -97,22 +97,27 @@ public class Atividade03_TelaCliente
         janela.setVisible(true);
     }
     
-    // Definir eventos
+    // Definir ouvintes e tratadores de eventos
     public void acionarEventos()
     {
+        // Adiciona registro de ouvinte de evento (interface ActionListener)
         bt_enviar.addActionListener(new ActionListener()
         {
+            // Método chamado quando botão é pressionado (tratador do eventos ActionEvent)
             public void actionPerformed(ActionEvent ae)
-            {ta_retorno.setText("Teste!");
+            {
+                
+                ta_retorno.setText("Teste!");
             }
         });
     }
     
     public static void main(String[] args) 
     {
+        // Cria quadro na thread de despacho de evento
         SwingUtilities.invokeLater(new Runnable() 
         {
-            public void run() // Cria a GUI na thread de despacho de evento
+            public void run() 
             {new Atividade03_TelaCliente();}
         });
     }
