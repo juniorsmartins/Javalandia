@@ -16,22 +16,24 @@ import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
 
 // View Cliente - mVc
-public class Atividade03_TelaCliente 
+public final class Atividade03_TelaCliente 
 {
-    // Atributos de Instância (características da tela)
+    // Atributos de Instância (componentes de tela)
     private JFrame janela; // Painel Superior - Conteiner
     private JPanel painelGeral;
     private JPanel painelNome; 
     private JPanel painelIdade;
     private JPanel painelRetorno;
     private JPanel painelBotao;
-
     private JLabel lb_nome;
     private JTextField tx_nome;
     private JLabel lb_idade;
     private JTextField tx_idade;
     private JTextArea ta_retorno;
     private JButton bt_enviar;
+
+    // Interface para uso com Pattern Strategy
+    private Atividade03_Interface_TelaControle telaInterControl;
     
     // Construtor
     Atividade03_TelaCliente()
@@ -40,7 +42,7 @@ public class Atividade03_TelaCliente
         acionarEventos();
     }
     
-    public void construirTela()
+    public final void construirTela()
     {
         // Criar conteiner
         janela = new JFrame("Tela do Cliente");
@@ -72,14 +74,6 @@ public class Atividade03_TelaCliente
         // Definir características aos painéis e componentes
         ta_retorno.setEditable(false);
 
-        // Definir posicionamento e dimensões
-//        painelNome.setBounds(10, 0, 500, 60);
-//        painelIdade.setBounds(80, 0, 500, 60);
-//        painelRetorno.setBounds(150, 0, 500, 100);
-//        painelBotao.setBounds(260, 0, 50, 30);
-//        lb_nome.setBounds(10, 0, 500, 50);
-//        tx_nome.setBounds(10, 0, 500, 50);
-
         // Agrupa componentes
         painelNome.add(lb_nome);
         painelNome.add(tx_nome);
@@ -98,25 +92,35 @@ public class Atividade03_TelaCliente
     }
     
     // Definir ouvintes e tratadores de eventos
-    public void acionarEventos()
+    public final void acionarEventos()
     {
         // Adiciona registro de ouvinte de evento (interface ActionListener)
         bt_enviar.addActionListener(new ActionListener()
         {
             // Método chamado quando botão é pressionado (tratador do eventos ActionEvent)
+            @Override
             public void actionPerformed(ActionEvent ae)
             {
-                
-                ta_retorno.setText("Teste!");
+                // Define o envio de nome e idade para o respectivo controle
+                telaInterControl = new Atividade03_ControleCliente();
+                String mensagemDoServidor = telaInterControl.acionarControle(tx_nome.getText(), tx_idade.getText());
+                limparNomeIdade();
             }
         });
     }
+    
+    public void limparNomeIdade()
+    {
+        tx_nome.setText("");
+        tx_idade.setText("");
+    };
     
     public static void main(String[] args) 
     {
         // Cria quadro na thread de despacho de evento
         SwingUtilities.invokeLater(new Runnable() 
         {
+            @Override
             public void run() 
             {new Atividade03_TelaCliente();}
         });

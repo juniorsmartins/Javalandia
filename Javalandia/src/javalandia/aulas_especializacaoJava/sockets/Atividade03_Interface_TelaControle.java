@@ -2,5 +2,5 @@ package javalandia.aulas_especializacaoJava.sockets;
 
 public interface Atividade03_Interface_TelaControle 
 {
-    public void acionaControle();
+    public String acionarControle(String nome, String idade);
 }
