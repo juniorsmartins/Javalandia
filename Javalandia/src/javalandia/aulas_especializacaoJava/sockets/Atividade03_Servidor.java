@@ -5,6 +5,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Level;
+import static java.lang.System.*;
 
 public final class Atividade03_Servidor extends Thread 
 {
@@ -12,7 +14,7 @@ public final class Atividade03_Servidor extends Thread
     public Socket connection;
     
     // Construtor parametrizado em conexao
-    public Atividade03_Servidor(Socket conn)
+    Atividade03_Servidor(Socket conn)
     {connection = conn;}
     
     // Metodo sobreescrito especifico de Threads
@@ -22,17 +24,25 @@ public final class Atividade03_Servidor extends Thread
         try
         {
             // Estabelece canal de entrada de dados
-            ObjectInputStream channelIn = new ObjectInputStream(connection.getInputStream());
+            ObjectInputStream canalEntrada = new ObjectInputStream(connection.getInputStream());
 
             // Recebe o objeto, mas precisa de casting para converter
-            Atividade03_ModeloPessoa pessoaServer = (Atividade03_ModeloPessoa) channelIn.readObject();
+            Atividade03_ModeloPessoa pessoaServer = new Atividade03_ModeloPessoa();
+            pessoaServer = (Atividade03_ModeloPessoa) canalEntrada.readObject();
 
-            // Processa as informacoes (transforma nome em maiúsculo e insere mensagem)
+            // Mensagens no console do servidor
+            out.println("Nome: " + pessoaServer.getNome());
+            out.println("Idade: " + pessoaServer.getIdade());
+            
+            // Processa as informacoes (transforma nome em maiúsculo e insere mensagem para retornar ao cliente)
             pessoaServer.setNome(pessoaServer.getNome().toUpperCase());
-            String frase = "\nServicor conectado com sucesso!\nNome: " + pessoaServer.getNome() 
+            String frase = "\nServiço conectado com sucesso! \nNome: " + pessoaServer.getNome() 
                     + "\nIdade: " + pessoaServer.getIdade() + "\nPode enviar mais!";
             pessoaServer.setMensagem(frase);
-
+            
+            // Mensagem no console do servidor
+            out.println("Dados processados e retornados para o cliente!");
+            
             // Estabelece canal de saida de dados
             ObjectOutputStream channelOut = new ObjectOutputStream(connection.getOutputStream());
             
@@ -40,17 +50,17 @@ public final class Atividade03_Servidor extends Thread
             channelOut.writeObject(pessoaServer);
             
             // Fecha canais de entrada e saida e conexao
-            channelIn.close();
+            canalEntrada.close();
             channelOut.close();
             connection.close();
         }
         catch (ClassNotFoundException ex)
-        {ex.toString();}
+        {java.util.logging.Logger.getLogger(Socket_Servidor_4.class.getName()).log(Level.SEVERE, null, ex);}
         catch(IOException iee)
         {iee.toString();}
     }
 
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, ClassNotFoundException
     {
         try
         {
@@ -62,13 +72,13 @@ public final class Atividade03_Servidor extends Thread
             {
                 // Metodo accept bloquea o fluxo continuo do software ate estabelecer conexao com cliente (aguarda ate firmar)
                 Socket connection = server.accept();
-                
-                // Imprime aviso no console do servidor
-                System.out.println("\nConexão estabelecida com cliente!");
-                
+                              
                 // Instancia o servidor com conexao estabelecida
                 Atividade03_Servidor servidor = new Atividade03_Servidor(connection);
                               
+                // Imprime aviso no console do servidor
+                out.println("\nConexão estabelecida com cliente!");
+
                 // Inicializa o método run do servidor
                 servidor.start();
             }

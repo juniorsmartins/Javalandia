@@ -1,7 +1,9 @@
 package javalandia.aulas_especializacaoJava.sockets;
 
+import java.io.Serializable;
+
 // Modelo Cliente - Mvc
-public final class Atividade03_ModeloPessoa 
+public final class Atividade03_ModeloPessoa implements Serializable
 {
     // Atributos de Instância
     private String nome = "";
