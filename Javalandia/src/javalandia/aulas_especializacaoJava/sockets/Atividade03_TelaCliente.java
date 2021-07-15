@@ -107,7 +107,9 @@ public final class Atividade03_TelaCliente
                     telaInterControl.acionarControle(tx_nome.getText(), tx_idade.getText());
 
                 // Limpeza das áreas de texto
-                limparNomeIdade();
+                tx_nome.setText("");
+                tx_idade.setText("");
+                ta_retorno.setText("");
                 
                 // Imprime a mensagem de retorno de feedback
                 ta_retorno.setText(mensagemDoServidor);
@@ -115,13 +117,7 @@ public final class Atividade03_TelaCliente
         });
     }
     
-    public void limparNomeIdade()
-    {
-        tx_nome.setText("");
-        tx_idade.setText("");
-        ta_retorno.setText("");
-    };
-    
+    // Método Driver
     public static void main(String[] args) 
     {
         // Cria quadro na thread de despacho de evento

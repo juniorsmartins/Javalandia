@@ -4,8 +4,9 @@ package javalandia.aulas_especializacaoJava.sockets;
 public final class Atividade03_ModeloPessoa 
 {
     // Atributos de Instância
-    private String nome;
-    private int idade;
+    private String nome = "";
+    private int idade = 0;
+    private String mensagem = "";
     
     // Construtores
     Atividade03_ModeloPessoa(){}; // Default// Default// Default// Default
@@ -21,10 +22,14 @@ public final class Atividade03_ModeloPessoa
     {this.nome = nome;}
     public void setIdade(int idade)
     {this.idade = idade;}
+    public void setMensagem(String mensagem)
+    {this.mensagem = mensagem;}
 
     // Métodos Getters(acesso)
     public String getNome()
     {return nome;}
     public int getIdade()
     {return idade;}
+    public String getMensagem()
+    {return mensagem;}
 }

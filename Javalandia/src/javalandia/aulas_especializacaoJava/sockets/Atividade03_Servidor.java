@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Atividade03_Servidor extends Thread 
+public final class Atividade03_Servidor extends Thread 
 {
     // Conexao como atributo de instancia para cada objeto thread
     public Socket connection;
@@ -27,11 +27,11 @@ public class Atividade03_Servidor extends Thread
             // Recebe o objeto, mas precisa de casting para converter
             Atividade03_ModeloPessoa pessoaServer = (Atividade03_ModeloPessoa) channelIn.readObject();
 
-            // Processa as informacoes
-            // TODO...
-
-            // Imprime informacoes recebidas na tela do servidor
-            // TODO...
+            // Processa as informacoes (transforma nome em maiúsculo e insere mensagem)
+            pessoaServer.setNome(pessoaServer.getNome().toUpperCase());
+            String frase = "\nServicor conectado com sucesso!\nNome: " + pessoaServer.getNome() 
+                    + "\nIdade: " + pessoaServer.getIdade() + "\nPode enviar mais!";
+            pessoaServer.setMensagem(frase);
 
             // Estabelece canal de saida de dados
             ObjectOutputStream channelOut = new ObjectOutputStream(connection.getOutputStream());
@@ -63,12 +63,12 @@ public class Atividade03_Servidor extends Thread
                 // Metodo accept bloquea o fluxo continuo do software ate estabelecer conexao com cliente (aguarda ate firmar)
                 Socket connection = server.accept();
                 
+                // Imprime aviso no console do servidor
+                System.out.println("\nConexão estabelecida com cliente!");
+                
                 // Instancia o servidor com conexao estabelecida
                 Atividade03_Servidor servidor = new Atividade03_Servidor(connection);
-                
-                // Metodo para abrir tela e imprimir mensagem do servidor
-                // TODO...
-                
+                              
                 // Inicializa o método run do servidor
                 servidor.start();
             }
