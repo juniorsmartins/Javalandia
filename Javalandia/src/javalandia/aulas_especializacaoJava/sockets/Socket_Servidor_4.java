@@ -61,8 +61,9 @@ public final class Socket_Servidor_4 extends Thread
             // Cria loop infinito para manter o servidor apto a receber conexoes ininterruptamente
             while(true)
             {
-                // Metodo accept bloquea o fluxo continuo do software ate estabelecer conexao com um cliente (fica aguardando ate firmar)
+                // Metodo accept bloquea o fluxo continuo do software ate estabelecer conexao com cliente (fica aguardando ate firmar)
                 Socket connection = server.accept();
+                // Instancia o servidor com conexao estabelecida
                 Socket_Servidor_4 ssThread = new Socket_Servidor_4(connection);
                 // Imprime mensagem no servidor
                 out.println("\nClient Connected!");

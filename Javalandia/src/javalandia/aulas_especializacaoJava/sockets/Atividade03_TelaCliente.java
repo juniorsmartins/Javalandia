@@ -103,8 +103,14 @@ public final class Atividade03_TelaCliente
             {
                 // Define o envio de nome e idade para o respectivo controle
                 telaInterControl = new Atividade03_ControleCliente();
-                String mensagemDoServidor = telaInterControl.acionarControle(tx_nome.getText(), tx_idade.getText());
+                String mensagemDoServidor = 
+                    telaInterControl.acionarControle(tx_nome.getText(), tx_idade.getText());
+
+                // Limpeza das áreas de texto
                 limparNomeIdade();
+                
+                // Imprime a mensagem de retorno de feedback
+                ta_retorno.setText(mensagemDoServidor);
             }
         });
     }
@@ -113,6 +119,7 @@ public final class Atividade03_TelaCliente
     {
         tx_nome.setText("");
         tx_idade.setText("");
+        ta_retorno.setText("");
     };
     
     public static void main(String[] args) 
