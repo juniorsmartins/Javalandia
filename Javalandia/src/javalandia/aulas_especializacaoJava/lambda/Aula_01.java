@@ -30,5 +30,26 @@ public class Aula_01
         out.println(varLambda3.mLamb());
         out.println(varLambda4.metodoLambda(4));
         out.println(varLambda5.teste(5, 2));
+
+        
+        // Lambda - classe anônima
+        Aula_01_Interface1 varLambda6 = new Aula_01_Interface1()
+        {
+            @Override
+            public String mConcat(String valor1, String valor2)
+            {
+                return valor1 + " " + valor2;
+            }
+        };
+        String nome2 = "Maleiro";
+        out.println(varLambda6.mConcat("Pedro", nome2));
+
+
+        // Lambda - Classe Dinâmica (não gera fisicamente arquivo class extra - cria somente dinamicamente)
+        Aula_01_Interface4 varLambda7 = () -> 
+        {
+            out.println("Sei lá");
+        };
+        varLambda7.sei_la();
     }
 }
