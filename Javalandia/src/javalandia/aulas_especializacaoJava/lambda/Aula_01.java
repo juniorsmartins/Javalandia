@@ -12,19 +12,19 @@ public class Aula_01
         // Declaração de variável lambda
         Aula_01_Interface varLambda1;
         Aula_01_Interface varLambda2;
-        Aula_01_Interface varLambda3;
+        Aula_01_Interface2 varLambda3;
         Aula_01_Interface varLambda4;
-        Aula_01_Interface varLambda5;
 
         // Uso de lambda em operações matemáticas
-        varLambda1 = () -> (98.4 + 1.6) * random();
-        varLambda2 = () -> 2.3 + 2.2;
-        
-        
+        varLambda1 = (v) -> (1 + v) * random();
+        varLambda2 = (v) -> 2.3 + 2.2 + v;
+        varLambda3 = () -> 2 + 2;
+        varLambda4 = (z) -> z + z + 2;
         
         // Impressão do valor da variável lambda
-        out.println("Resultado: " + varLambda1.metodoLambda());
-        out.println(varLambda2.metodoLambda());
+        out.println("Resultado: " + varLambda1.metodoLambda(10));
+        out.println(varLambda2.metodoLambda(100));
+        out.println(varLambda3.mLamb());
+        out.println(varLambda4.metodoLambda(4));
     }
-
 }
