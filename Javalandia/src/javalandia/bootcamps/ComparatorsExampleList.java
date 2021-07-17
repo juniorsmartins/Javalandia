@@ -1,7 +1,5 @@
 package javalandia.bootcamps;
 
-import BootcampInterJavaDIO.AulaComparators.Estudante;
-import BootcampInterJavaDIO.AulaComparators.EstudanteOrdemIdadeReversaComparator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
