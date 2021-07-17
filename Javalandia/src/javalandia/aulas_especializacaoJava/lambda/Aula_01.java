@@ -51,5 +51,11 @@ public class Aula_01
             out.println("Sei lá");
         };
         varLambda7.sei_la();
+
+
+        // Lambda
+        Aula_01_Interface3 lambTest = (val1, val2) -> 
+                (val1 < 0 ? -val1 : val1) == (val2 < 0 ? -val2 : val2);
+        out.println("Valores absolutos iguais: " + lambTest.teste(2, -2) + "\n");
     }
 }
