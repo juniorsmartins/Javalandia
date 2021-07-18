@@ -1,6 +1,5 @@
 package javalandia.aulas_soltas;
 
-import TreinoMJV.outros.Plano;
 import java.util.Scanner;
 
 public class Main 

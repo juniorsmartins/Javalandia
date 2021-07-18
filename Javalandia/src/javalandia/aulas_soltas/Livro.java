@@ -1,8 +1,6 @@
 package javalandia.aulas_soltas;
 
-import TreinoMJV.model.Produto;
-
-public final class Livro extends Produto
+public final class Livro extends Produto2
 {
     // ÁREA DE ATRIBUTOS
     private int paginas;
@@ -11,7 +9,7 @@ public final class Livro extends Produto
     // ÁREA DE CONSTRUTORES
     public Livro(String codigo, String titulo, Double valor, int paginas)
     {
-        Produto.setIdClasse();
+        Produto2.setIdClasse();
         this.setId();
         this.setCodigoBarras(codigo);
         this.setTitulo(titulo);
