@@ -4,6 +4,9 @@ package javalandia.aulas_soltas;
 import java.util.Scanner;
 import java.util.List;
 import java.util.LinkedList;
+import static javalandia.aulas_soltas.Utilitarios.cadSucesso;
+import static javalandia.aulas_soltas.Utilitarios.pulaLinha;
+import static javalandia.aulas_soltas.Utilitarios.tecleEnter;
 
 public class Driver 
 {
