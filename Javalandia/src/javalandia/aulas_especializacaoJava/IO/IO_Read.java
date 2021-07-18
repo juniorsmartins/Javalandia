@@ -1,4 +1,4 @@
-package javalandia.aulas_especializacaoJava;
+package javalandia.aulas_especializacaoJava.IO;
 
 import java.io.IOException;
 
