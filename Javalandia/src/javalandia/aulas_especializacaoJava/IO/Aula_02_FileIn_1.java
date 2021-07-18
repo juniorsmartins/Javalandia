@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Aula_03_FileIn 
+public class Aula_02_FileIn_1 
 {
     public static void main(String[] args) throws FileNotFoundException, IOException
     {

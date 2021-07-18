@@ -1,6 +1,6 @@
 package javalandia.aulas_especializacaoJava.IO;
 
-public class Aula_02_Write 
+public class Aula_01_Write 
 {
     public static void main(String[] args) 
     {
