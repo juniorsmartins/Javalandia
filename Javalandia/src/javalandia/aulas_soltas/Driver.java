@@ -1,11 +1,5 @@
 package javalandia.aulas_soltas;
 
-// Importação das minhas classes
-import TreinoMJV.model.Cadastro;
-import TreinoMJV.model.Cd;
-import TreinoMJV.model.Livro;
-import static TreinoMJV.uteis.Utilitarios.*;
-
 // Importação de classes do Java
 import java.util.Scanner;
 import java.util.List;
