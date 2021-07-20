@@ -1,6 +1,5 @@
 package javalandia.aulas_udemy;
 
-import Projetos.Projeto03_Banco.control.Utils;
 import java.util.Date;
 
 public class Cliente 
