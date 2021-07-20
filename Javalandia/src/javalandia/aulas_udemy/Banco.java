@@ -8,11 +8,11 @@ public class Banco
 {
     static String nome = "Geek Bank";
     static Scanner teclado = new Scanner(System.in);
-    static ArrayList<Conta> contas;
+    static ArrayList<ContaCorrente> contas;
     
     public static void main(String[] args) 
     {
-        Banco.contas = new ArrayList<Conta>();
+        Banco.contas = new ArrayList<ContaCorrente>();
         Banco.menu();
     }
     
@@ -97,7 +97,7 @@ public class Banco
         String email = Banco.teclado.next();
         
         Cliente cliente = new Cliente(nome, email, cpf, Utils.stringParaData(dataNascimento));
-        Conta conta = new Conta(cliente);
+        ContaCorrente conta = new ContaCorrente(cliente);
         Banco.contas.add(conta);
         
         System.out.println("\nConta aberta com sucesso!");
@@ -114,7 +114,7 @@ public class Banco
         System.out.print("Número da conta: ");
         int numero = Banco.teclado.nextInt();
         
-        Conta conta = Banco.buscarContaPorNumero(numero);
+        ContaCorrente conta = Banco.buscarContaPorNumero(numero);
         
         if(conta != null)
         {
@@ -138,7 +138,7 @@ public class Banco
         System.out.print("Número conta: ");
         int numero = Banco.teclado.nextInt();
         
-        Conta conta = Banco.buscarContaPorNumero(numero);
+        ContaCorrente conta = Banco.buscarContaPorNumero(numero);
         
         if(conta != null)
         {
@@ -162,14 +162,14 @@ public class Banco
         System.out.print("Número da conta origem: ");
         int numeroOrigem = Banco.teclado.nextInt();
         
-        Conta contaOrigem = Banco.buscarContaPorNumero(numeroOrigem);
+        ContaCorrente contaOrigem = Banco.buscarContaPorNumero(numeroOrigem);
         
         if(contaOrigem != null)
         {
             Utils.pulaLinha(1);
             System.out.print("Número da conta destino: ");
             int numeroDestino = Banco.teclado.nextInt();
-            Conta contaDestino = Banco.buscarContaPorNumero(numeroDestino);
+            ContaCorrente contaDestino = Banco.buscarContaPorNumero(numeroDestino);
             if(contaDestino != null)
             {
                 Utils.pulaLinha(1);
@@ -197,7 +197,7 @@ public class Banco
         if(Banco.contas.size() > 0)
         {
             Utils.pulaLinha(1);
-            for(Conta item: Banco.contas)
+            for(ContaCorrente item: Banco.contas)
             {
                 System.out.println(item);
                 Utils.pulaLinha(1);
@@ -213,12 +213,12 @@ public class Banco
         Banco.menu();
     }
     
-    public static Conta buscarContaPorNumero(int numero)
+    public static ContaCorrente buscarContaPorNumero(int numero)
     {
-        Conta existeOuN = null;
+        ContaCorrente existeOuN = null;
         if(Banco.contas.size() > 0)
         {
-            for(Conta conta: Banco.contas)
+            for(ContaCorrente conta: Banco.contas)
             {
                 if(conta.getNumero() == numero)
                 {

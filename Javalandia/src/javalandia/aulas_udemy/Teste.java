@@ -12,8 +12,8 @@ public class Teste
 //        System.out.println("");
 //        System.out.println(angelina);
         
-        Conta c101 = new Conta(felicity);
-        Conta c102 = new Conta(angelina);
+        ContaCorrente c101 = new ContaCorrente(felicity);
+        ContaCorrente c102 = new ContaCorrente(angelina);
         
         // Teste de depósito
         c101.depositar(501.00);

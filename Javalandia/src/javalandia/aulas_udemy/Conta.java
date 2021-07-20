@@ -1,87 +1,160 @@
 package javalandia.aulas_udemy;
 
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import Projetos.Projeto03_Banco.control.Utils;
+import Projetos.Projeto03_Banco.model.Cliente;
 
 public class Conta 
 {
-    /* ---------- ÁREA DE ATRIBUTOS ---------- */
     // Atributos de Classe
-    public static double totalContas;
+    private static int codigo = 1001;
     
     // Atributos de Instância
-    private String dataAberturaConta;
-    private String idConta;
-    private double saldoConta;
-
-    /* ---------- ÁREA DE MÉTODOS ---------- */
-    // Métodos Construtores
-    public Conta(double valor)
-    {
-        Conta.setTotalContas();
-        this.setDataAberturaConta();
-        this.setIdConta();
-        this.setSaldoConta(valor);
-    }
+    private int numero;
+    private Cliente cliente;
+    private Double saldo = 0.0;
+    private Double limite = 0.0;
+    private Double saldoTotal;
     
-    // Métodos Abstratos
-    
-    // Métodos de Classe
-    public static double getTotalContas()
+    // Método Construtor
+    public Conta(Cliente cliente)
     {
-        return Conta.totalContas;
-    }
-    private static void setTotalContas()
-    {
-        Conta.totalContas += 1;
+        this.setNumero(Conta.codigo);
+        this.setCliente(cliente);
+        Conta.codigo += 1;
+        this.atualizaSaldoTotal();
     }
 
-    // Métodos de Instância
-        // Forma um de fazer sincronização
-    public synchronized void depositar (double valor)
+    // Métodos Especiais de Instância
+    private void atualizaSaldoTotal()
     {
-        this.saldoConta += valor;
+        this.setSaldoTotal(this.getSaldo() + this.getLimite());
     }
-
-        // Forma dois de fazer a sincronização
-/*    public void depositar(double valor) 
+    public void depositar(Double valor)
     {
-        synchronized (this) 
+        if(valor > 0)
         {
-            this.saldoConta += valor;
+            Utils.pulaLinha(1);
+            this.setSaldo(this.getSaldo() + valor);
+            this.atualizaSaldoTotal();
+            System.out.println("Depósito efetuado com sucesso!");
+        }
+        else
+        {
+            Utils.pulaLinha(1);
+            System.out.println("Erro ao efetuar depósito. Tente novamente!");
         }
     }
-*/
-
-    // Métodos de Polimorfismo
-
-    // Métodos Getters e Setters    
-    public String getDataAberturaConta()
+    public void sacar(Double valor)
     {
-        return this.dataAberturaConta;
+        if(valor > 0 && this.getSaldoTotal() >= valor)
+        {
+            if(this.getSaldo() >= valor)
+            {
+                Utils.pulaLinha(1);
+                this.setSaldo(this.getSaldo() - valor);
+                this.atualizaSaldoTotal();
+                System.out.println("Saque efetuado com sucesso! Sacado do saldo.");
+            }
+            else
+            {
+                Utils.pulaLinha(1);
+                Double restante = this.getSaldo() - valor;
+                this.setLimite(this.getLimite() + restante);
+                this.setSaldo(0.0);
+                this.atualizaSaldoTotal();
+                System.out.println("Saque efetuado com sucesso! O limite foi usado.");
+            }
+        }
+        else
+        {
+            System.out.println("Saque não realizado. Tente novamente!");
+        }
     }
-    private void setDataAberturaConta()
+    public void transferir(Conta destino, Double valor)
     {
-        Date data = new Date();
-        SimpleDateFormat formatar = new SimpleDateFormat("ddMMyyyy");
-        this.dataAberturaConta = formatar.format(data);
+        if(valor > 0 && this.getSaldoTotal() >= valor)
+        {
+            if(this.getSaldo() >= valor)
+            {
+                Utils.pulaLinha(1);
+                this.setSaldo(this.getSaldo() - valor);
+                destino.setSaldo(destino.getSaldo() + valor);
+                this.atualizaSaldoTotal();
+                destino.atualizaSaldoTotal();
+                System.out.println("Transferência realizada com sucesso! O saldo foi usado.");
+            }
+            else
+            {
+                Utils.pulaLinha(1);
+                Double restante = this.getSaldo() - valor;
+                this.setLimite(this.getLimite() + restante);
+                this.setSaldo(0.0);
+                destino.setSaldo(destino.getSaldo() + valor);
+                this.atualizaSaldoTotal();
+                destino.atualizaSaldoTotal();
+                System.out.println("Transferência realizada com sucesso! O limite foi usado.");
+            }
+        }
+        else
+        {
+            System.out.println("Transferência não realizada! Tente novamente.");
+        }
     }
     
-    public String getIdConta()
+    // Métodos de SuperClasse
+    @Override
+    public String toString()
     {
-        return this.idConta;
+        return ("\nNúmero da conta: " + this.getNumero() +
+                "\nCliente: " + this.cliente.getNome() +
+                "\nCPF: " + this.cliente.getCpf() +
+                "\nData Nascimento: " + this.cliente.getDataNascimento() +
+                "\nE-mail: " + this.cliente.getEmail() +
+                "\nSaldo Total: " + Utils.doubleParaString(this.getSaldoTotal()));
     }
-    private void setIdConta()
+    
+    // Métodos Getters
+    public int getNumero()
     {
-        this.idConta = (this.getDataAberturaConta() + " - " + Conta.getTotalContas());
+        return this.numero;
     }
-
-    public double getSaldoConta()
+    public Cliente getCliente()
     {
-        return this.saldoConta;
+        return this.cliente;
     }
-    private void setSaldoConta(double valor)
+    public Double getSaldo()
     {
-        this.saldoConta += valor;
+        return this.saldo;
+    }
+    public Double getLimite()
+    {
+        return this.limite;
+    }
+    public Double getSaldoTotal()
+    {
+        return this.saldoTotal;
+    }
+    
+    // Métodos Setters
+    private void setNumero (int num)
+    {
+        this.numero = num;
+    }
+    private void setCliente(Cliente cliente)
+    {
+        this.cliente = cliente;
+    }
+    private void setSaldo(Double valor)
+    {
+        this.saldo = valor;
+    }
+    public void setLimite(Double limite)
+    {
+        this.limite = limite;
+        this.atualizaSaldoTotal();
+    }
+    private void setSaldoTotal(Double total)
+    {
+        this.saldoTotal = total;
     }
 }

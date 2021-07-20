@@ -1,12 +1,12 @@
 package javalandia.aulas_udemy;
 
-import javalandia.aulas_udemy.Conta;
+import javalandia.aulas_udemy.ContaCorrente;
 
 public class FazDeposito implements Runnable
 {
-    private Conta conta;
+    private ContaCorrente conta;
     
-    public FazDeposito(Conta conta)
+    public FazDeposito(ContaCorrente conta)
     {
         this.conta = conta;
     }
