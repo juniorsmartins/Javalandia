@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import static java.lang.System.*;
 
-public class Aula_02_FileOutAuto 
+public class Aula_02_FileOut_TryWithResources1 
 {
     public static void main(String[] args) 
     {
