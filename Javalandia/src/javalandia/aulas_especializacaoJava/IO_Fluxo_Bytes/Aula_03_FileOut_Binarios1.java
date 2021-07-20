@@ -1,4 +1,4 @@
-package javalandia.aulas_especializacaoJava.IO;
+package javalandia.aulas_especializacaoJava.IO_Fluxo_Bytes;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

@@ -1,4 +1,4 @@
-package javalandia.aulas_especializacaoJava.IO;
+package javalandia.aulas_especializacaoJava.IO_Fluxo_Bytes;
 
 public class Aula_01_Write 
 {
