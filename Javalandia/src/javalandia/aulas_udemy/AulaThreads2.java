@@ -4,7 +4,7 @@ public class AulaThreads2
 {
     public static void main(String[] args) throws InterruptedException 
     {
-        PessoaFisica cliente = new PessoaFisica("Roberta Zanini");
+        Cliente cliente = new Cliente("Roberta Zanini");
         ContaCorrente conta1 = new ContaCorrente(100);
         
         FazDeposito acao = new FazDeposito(conta1);

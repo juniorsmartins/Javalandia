@@ -1,101 +1,71 @@
 package javalandia.aulas_udemy;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Cliente 
 {
-    private static int contador = 101;
+    /* ---------- ÁREA DE ATRIBUTOS ---------- */
+    // Atributos de Classe
+    public static double totalClientes;
     
-    private int codigo;
-    private String nome;
-    private String email;
-    private String cpf;
-    private Date dataNascimento;
-    private Date dataCadastro;
+    // Atributos de Instância
+    private String dataCadastroCliente;
+    private String registroCliente;
+    private String nomeCliente;
+    
+    /* ---------- ÁREA DE MÉTODOS ---------- */
+    // Métodos Construtores
+    public Cliente(String nome)
+    {
+        Cliente.setTotalClientes();
+        this.setDataCadastroCliente();
+        this.setRegistroCliente();
+        this.setNomeCliente(nome);
+    }
 
-    // Método construtor
-    public Cliente(String nome, String email, String cpf, Date dataNasc)
-    {
-        this.setCodigo(Cliente.contador);
-        this.setNome(nome);
-        this.setEmail(email);
-        this.setCpf(cpf);
-        this.setDataNascimento(dataNasc);
-        this.setDataCadastro();
-        Cliente.setContador();
-    }
-    
+    // Métodos Abstratos
+
     // Métodos de Classe
-    public static int getContador()
+    public static double getTotalClientes()
     {
-        return Cliente.contador;
+        return Cliente.totalClientes;
     }
-    private static void setContador()
+    private static void setTotalClientes()
     {
-        Cliente.contador += 1;
+        Cliente.totalClientes += 1;
     }
-    
-    // Métodos de Superclasse
-    @Override
-    public String toString()
+
+    // Métodos de Instância
+    // Métodos de Polimorfismo
+
+    // Métodos Getters e Setters
+    public String getDataCadastroCliente()
     {
-        return ("\nCódigo: " + this.getCodigo() +
-                "\nNome: " + this.getNome() +
-                "\nCPF: " + this.getCpf() +
-                "\nEmail: " + this.getEmail() +
-                "\nData Nascimento: " + Utils.dateParaString(this.getDataNascimento()) +
-                "\nData de Cadastro: " + Utils.dateParaString(this.getDataCadastro()));
+        return this.dataCadastroCliente;
     }
-    
-    // Métodos Getters
-    public int getCodigo()
+    private void setDataCadastroCliente()
     {
-        return this.codigo;
-    }
-    public String getNome()
-    {
-        return this.nome;
-    }
-    public String getEmail()
-    {
-        return this.email;
-    }
-    public String getCpf()
-    {
-        return this.cpf;
-    }
-    public Date getDataNascimento()
-    {
-        return this.dataNascimento;
-    }
-    public Date getDataCadastro()
-    {
-        return this.dataCadastro;
+        Date data = new Date();
+        SimpleDateFormat formatar = new SimpleDateFormat("ddMMyyyy");
+        this.dataCadastroCliente = formatar.format(data);
     }
     
-    // Métodos Setters
-    private void setCodigo(int codigo)
+    public String getRegistroCliente()
     {
-        this.codigo = codigo;
+        return this.registroCliente;
     }
-    private void setNome(String nome)
+    private void setRegistroCliente()
     {
-        this.nome = nome;
+        this.registroCliente = (this.getDataCadastroCliente() + " - " + Cliente.getTotalClientes());
     }
-    private void setEmail(String email)
+
+    public String getNomeCliente()
     {
-        this.email = email;
+        return this.nomeCliente;
     }
-    private void setCpf(String cpf)
+    private void setNomeCliente(String nome)
     {
-        this.cpf = cpf;
-    }
-    private void setDataNascimento(Date nascimento)
-    {
-        this.dataNascimento = nascimento;
-    }
-    private void setDataCadastro()
-    {
-        this.dataCadastro = new Date();
+        this.nomeCliente = nome;
     }
 }
