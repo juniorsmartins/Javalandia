@@ -1,8 +1,5 @@
 package javalandia.aulas_udemy;
 
-import Projetos.Projeto03_Banco.control.Utils;
-import Projetos.Projeto03_Banco.model.Cliente;
-
 public class Conta 
 {
     // Atributos de Classe
@@ -10,13 +7,13 @@ public class Conta
     
     // Atributos de Instância
     private int numero;
-    private Cliente cliente;
+    private PessoaFisica cliente;
     private Double saldo = 0.0;
     private Double limite = 0.0;
     private Double saldoTotal;
     
     // Método Construtor
-    public Conta(Cliente cliente)
+    public Conta(PessoaFisica cliente)
     {
         this.setNumero(Conta.codigo);
         this.setCliente(cliente);
@@ -118,7 +115,7 @@ public class Conta
     {
         return this.numero;
     }
-    public Cliente getCliente()
+    public PessoaFisica getCliente()
     {
         return this.cliente;
     }
@@ -140,7 +137,7 @@ public class Conta
     {
         this.numero = num;
     }
-    private void setCliente(Cliente cliente)
+    private void setCliente(PessoaFisica cliente)
     {
         this.cliente = cliente;
     }

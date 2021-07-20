@@ -4,9 +4,9 @@ public class Teste
 {
     public static void main(String[] args) 
     {
-        Cliente felicity = new Cliente("Felicity Jones", "felicity@gmail.com", "123.456.789.01", Utils.stringParaData("17/05/1981"));
+        PessoaFisica felicity = new PessoaFisica("Felicity Jones", "felicity@gmail.com", "123.456.789.01", Utils.stringParaData("17/05/1981"));
         
-        Cliente angelina = new Cliente("Angelina Jolie", "angelina@gmail.com", "133.656.777.61", Utils.stringParaData("23/02/1978"));
+        PessoaFisica angelina = new PessoaFisica("Angelina Jolie", "angelina@gmail.com", "133.656.777.61", Utils.stringParaData("23/02/1978"));
         
 //        System.out.println(felicity);
 //        System.out.println("");

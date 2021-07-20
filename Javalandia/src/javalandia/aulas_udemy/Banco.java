@@ -1,6 +1,5 @@
 package javalandia.aulas_udemy;
 
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -96,7 +95,7 @@ public class Banco
         System.out.print("E-mail do cliente: ");
         String email = Banco.teclado.next();
         
-        Cliente cliente = new Cliente(nome, email, cpf, Utils.stringParaData(dataNascimento));
+        PessoaFisica cliente = new PessoaFisica(nome, email, cpf, Utils.stringParaData(dataNascimento));
         ContaCorrente conta = new ContaCorrente(cliente);
         Banco.contas.add(conta);
         
